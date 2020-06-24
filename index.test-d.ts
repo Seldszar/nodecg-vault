@@ -1,4 +1,9 @@
 import {expectType} from 'tsd';
 import Vault = require('.');
 
-expectType<Vault<any>>(new Vault<any>(null));
+const nodecg = {
+	bundleName: 'lorem',
+	bundleVersion: '1.0.0'
+};
+
+expectType<Vault>(new Vault(nodecg));
