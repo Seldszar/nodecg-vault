@@ -1,0 +1,45 @@
+{
+  "name": "nodecg-vault",
+  "version": "0.0.0-development",
+  "description": "Add vaults to NodeCG for storing bundle secrets",
+  "author": "Alexandre Breteau <contact@seldszar.fr> (https://seldszar.fr)",
+  "repository": "seldszar/nodecg-vault",
+  "license": "MIT",
+  "scripts": {
+    "test": "xo && ava && tsd"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "keywords": [
+    "nodecg",
+    "vault"
+  ],
+  "dependencies": {
+    "conf": "^6.2.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "ava": "^3.9.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "tsd": "^0.11.0",
+    "xo": "^0.32.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": "xo --fix"
+  }
+}
