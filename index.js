@@ -12,4 +12,12 @@ class Vault extends Conf {
 	}
 }
 
+Vault.withVault = (options, callback) => {
+	if (typeof options === 'function') {
+		return Vault.withVault(undefined, options);
+	}
+
+	return nodecg => callback(nodecg, new Vault(nodecg, options));
+};
+
 module.exports = Vault;

@@ -17,16 +17,16 @@
     "vault"
   ],
   "dependencies": {
-    "conf": "^6.2.4"
+    "conf": "^7.1.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.0.1",
-    "@commitlint/config-conventional": "^9.0.1",
-    "ava": "^3.9.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "tsd": "^0.11.0",
-    "xo": "^0.32.0"
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "ava": "^3.12.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.3.0",
+    "tsd": "^0.13.1",
+    "xo": "^0.33.1"
   },
   "commitlint": {
     "extends": [

@@ -1,11 +1,37 @@
-import Conf = require('conf');
+import Conf, {Options as BaseOptions} from 'conf';
 
 declare namespace Vault {
-	interface Options<T> extends Omit<Conf.Options<T>, 'configName' | 'cwd' | 'projectName' | 'projectSuffix' | 'projectVersion'> {}
+	/**
+	 * The vault option.
+	 */
+	interface Options<T> extends Omit<BaseOptions<T>, 'configName' | 'cwd' | 'projectName' | 'projectSuffix' | 'projectVersion'> {}
+
+	/**
+	 * A function returning the NodeCG instance and its vault.
+	 */
+	type Handler<T> = (nodecg: any, vault: Vault<T>) => void;
 }
 
 declare class Vault<T = any> extends Conf<T> {
+	/**
+	 * Creates a new vault.
+	 * @param nodecg the NodeCG instance
+	 * @param options this vault options
+	 */
 	constructor(nodecg: any, options?: Vault.Options<T>);
+
+	/**
+	 * Creates a wrapper returning the NodeCG instance and its vault.
+	 * @param handler the handler
+	 */
+	static withVault<T = any>(handler: Vault.Handler<T>): void;
+
+	/**
+	 * Creates a wrapper returning the NodeCG instance and its vault.
+	 * @param options this vault options
+	 * @param handler the handler
+	 */
+	static withVault<T = any>(options: Vault.Options<T>, handler: Vault.Handler<T>): void;
 }
 
 export = Vault;
