@@ -6,4 +6,4 @@ const nodecg = {
 	bundleVersion: '1.0.0'
 };
 
-expectType<Vault>(new Vault(nodecg));
+expectType<Vault<typeof nodecg>>(new Vault(nodecg));
