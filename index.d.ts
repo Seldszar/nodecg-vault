@@ -9,7 +9,7 @@ declare namespace Vault {
 	/**
 	 * A function returning the NodeCG instance and its vault.
 	 */
-	type Handler<T, V> = (nodecg: T, vault: Vault<V>) => void;
+	type Handler<T, V> = (nodecg: T, vault: Vault<T, V>) => void;
 }
 
 declare class Vault<T = any, V = any> extends Conf<T> {
