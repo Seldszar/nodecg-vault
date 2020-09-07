@@ -4,21 +4,21 @@ declare namespace Vault {
 	/**
 	 * The vault option.
 	 */
-	interface Options<T = any> extends Omit<BaseOptions<T>, 'configName' | 'cwd' | 'projectName' | 'projectSuffix' | 'projectVersion'> {}
+	interface Options<T> extends Omit<BaseOptions<T>, 'configName' | 'cwd' | 'projectName' | 'projectSuffix' | 'projectVersion'> {}
 
 	/**
 	 * A function returning the NodeCG instance and its vault.
 	 */
-	type Handler<T, V> = (nodecg: T, vault: Vault<T, V>) => void;
+	type Handler<T, V> = (nodecg: T, vault: Vault<V>) => void;
 }
 
-declare class Vault<T = any, V = any> extends Conf<T> {
+declare class Vault<T = any> extends Conf<T> {
 	/**
 	 * Creates a new vault.
 	 * @param nodecg the NodeCG instance
 	 * @param options this vault options
 	 */
-	constructor(nodecg: T, options?: Vault.Options<V>);
+	constructor(nodecg: any, options?: Vault.Options<T>);
 
 	/**
 	 * Creates a wrapper returning the NodeCG instance and its vault.
