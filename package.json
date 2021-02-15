@@ -6,6 +6,7 @@
   "repository": "seldszar/nodecg-vault",
   "license": "MIT",
   "scripts": {
+    "postinstall": "husky install",
     "test": "xo && ava && tsd"
   },
   "files": [
@@ -17,27 +18,21 @@
     "vault"
   ],
   "dependencies": {
-    "conf": "^7.1.2"
+    "conf": "^9.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "ava": "^3.13.0",
-    "husky": "^4.3.0",
+    "husky": "^5.0.9",
     "lint-staged": "^10.4.0",
-    "tsd": "^0.13.1",
-    "xo": "^0.33.1"
+    "tsd": "^0.14.0",
+    "xo": "^0.37.1"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.{js,ts}": "xo --fix"
